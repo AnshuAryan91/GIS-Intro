@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drone Cadastral Mapper</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Urban Cadastral Intelligence Platform</p>
+          <h1>Drone Cadastral Mapper</h1>
+        </div>
+        <p>AI-assisted urban parcel preparation prototype</p>
+      </header>
+
+      <section class="metrics-row">
+        <div class="metric-card">
+          <span class="metric-label">Parcels</span>
+          <strong id="metricParcels">0</strong>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Accuracy</span>
+          <strong>Prototype</strong>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Status</span>
+          <strong>Live Demo</strong>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Workflow</span>
+          <strong>AI + GIS</strong>
+        </div>
+      </section>
+
+      <main class="layout">
+        <section class="panel upload-panel">
+          <h2>Upload Drone Imagery</h2>
+          <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="imageInput" name="image" accept=".jpg,.jpeg,.png,.tif,.tiff" required />
+            <button type="submit">Process Image</button>
+          </form>
+
+          <div id="status" class="status">Waiting for image upload...</div>
+          <div class="summary-box">
+            <strong>Project aim:</strong>
+            <p>Computer-vision estimate of parcel-like regions visible in drone imagery.</p>
+          </div>
+
+          <div class="summary-box">
+            <strong>System components</strong>
+            <ul class="feature-list">
+              <li>Drone imagery ingestion</li>
+              <li>Parcel boundary extraction</li>
+              <li>Building and road detection</li>
+              <li>Topology validation</li>
+              <li>GIS-ready export</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel result-panel">
+          <h2>Processed Image</h2>
+          <img id="processedImage" class="processed-image" alt="Processed upload" />
+          <div class="stats">
+            <span id="polygonCount">0 parcels</span>
+          </div>
+        </section>
+      </main>
+
+      <section class="panel output-panel">
+        <h2>Detected Parcel Candidates</h2>
+        <pre id="resultOutput">No output yet.</pre>
+      </section>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
